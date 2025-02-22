@@ -1,0 +1,175 @@
+int sensorFE = A4; //sensores frontais (o pino deles)
+int sensorFD = A3;
+
+
+int luzFe;   //o valor que os pinos frontais vão retornar
+int luzFd;
+
+int sensorTE = A1;  //Deu pra entender né
+int sensorTD = A2;
+
+int luzTe;
+int luzTd;  //...
+
+
+float Fronteira; //uma média dos valores dos sensores na frente
+float Traseira;  //a média atrás
+
+int MotorEsq2 = 2; //sim tá estranho, mas eu troquei a ordem dos pinos e fiou mais fácil só mudar o número no código
+int MotorEsq1 = 3; //as portas do motor
+int MotorDir1 = 4; //cada motor tem duas portas pra controlar a direção dele
+int MotorDir2 = 5;
+const int vel1 = 6;
+const int vel2 = 9;
+bool calculo;
+
+
+
+void setup()
+{
+  pinMode(sensorFE,INPUT);
+  pinMode(sensorFD,INPUT);
+  pinMode(sensorTE,INPUT);
+  pinMode(sensorTD,INPUT);
+  pinMode(MotorEsq1,OUTPUT);
+  pinMode(MotorEsq2,OUTPUT);
+  pinMode(vel1,OUTPUT);
+  pinMode(vel2,OUTPUT);
+  pinMode(MotorDir1,OUTPUT);
+  pinMode(MotorDir2,OUTPUT);
+
+  
+    
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  luzFe = analogRead(sensorFE)   ; //tá lendo os valores de cada sensor qui
+  luzFd = analogRead(sensorFD)   ;
+  luzTe = analogRead(sensorTE)   ;
+  luzTd = analogRead(sensorTD)  ;
+  analogWrite(vel1, 130);
+  analogWrite(vel2, 130);
+  
+  Serial.print("sFE_ : ");      
+   Serial.println(luzFe);
+  Serial.print("sFD : ");      
+   Serial.println(luzFd);
+  Serial.print("sTE : ");      
+   Serial.println(luzTe);
+  Serial.print("sTD : ");      
+   Serial.println(luzTd) ;
+  
+  delay(50);
+  if  (calculo == false){
+    float ambiente1 = (Fronteira+ Traseira)/2; //aqui eu to pegando o valor que a média de todos tá pegando quando liga o código, esse valor não muda durante o código e serve pra fazer comparações
+    delay(1000);
+    float ambiente2 = (Fronteira+ Traseira)/2; //aqui eu to pegando o valor que a média de todos tá pegando quando liga o código, esse valor não muda durante o código e serve pra fazer comparações
+    delay(1000);
+    float ambiente3 = (Fronteira+ Traseira)/2; //aqui eu to pegando o valor que a média de todos tá pegando quando liga o código, esse valor não muda durante o código e serve pra fazer comparações
+    delay(1000);
+    float ambiente4 = (Fronteira+ Traseira)/2; //aqui eu to pegando o valor que a média de todos tá pegando quando liga o código, esse valor não muda durante o código e serve pra fazer comparações
+    delay(1000);
+    float ambiente5 = (Fronteira+ Traseira)/2; //aqui eu to pegando o valor que a média de todos tá pegando quando liga o código, esse valor não muda durante o código e serve pra fazer comparações
+    static float ambienteTotal = (ambiente1 + ambiente2 +  ambiente3 +  ambiente4 +  ambiente5 )/5 ;
+    calculo = true ;
+
+  }else{
+     calculo = true ;
+  }
+  Fronteira = (luzFe + luzFd)/2; //calculo da média da frente
+  Traseira = (luzTe+luzTd)/2;  //deu pra entender né
+  static float ambiente = (Fronteira+ Traseira)/2; //aqui eu to pegando o valor que a média de todos tá pegando quando liga o código, esse valor não muda durante o código e serve pra fazer comparações
+  
+  Serial.print("Fronteira : ");      
+   Serial.println(Fronteira);
+  Serial.print("Ambiente : ");      
+   Serial.println(ambiente);
+  Serial.print("Traseira : ");      
+   Serial.println(Traseira);
+  
+  
+  
+  if (luzFe  > luzFd + 400){ //essas condiçoes tão vendo qual lado tem mais luz, esse 50 é uma margem de erro que tem que testar pra ver um número adequado       
+    Motor_Esq_Hor();    
+    Motor_Dir_Anti(); //quando um vai pra frente o outro tem que ir pra trás
+    Serial.println("indo para esquerda ");      
+  
+  }else if (luzFd > luzFe + 400 ){       
+    Motor_Dir_Hor(); //se tem mais luz do lado esquerdo ele vai tentar igualar acionando o motor direito pra frente e o esquerdo pra trás         
+    Motor_Esq_Anti();   
+    Serial.println("indo para direita ");      
+  }else if (luzTe > Fronteira + 400 && luzTe > luzTd ){
+    Motor_Esq_Hor();
+    Motor_Dir_Anti();
+    Serial.println("indo para esquerda atrás");  
+  }else if ((luzTd > Fronteira + 400 && luzTd > luzTe )||(Fronteira + 50 < Traseira)){
+    Motor_Dir_Hor();
+    Motor_Esq_Anti();
+    Serial.println("indo para direita atrás ");  
+  }else if(Fronteira < ambiente + 500 && Fronteira > ambiente + 400){
+    Serial.println("indo para frente ");      
+    Motor_Esq_Hor();
+    Motor_Dir_Hor();
+  }else{
+    Serial.println("nada ");      
+    Motor_Esq_Stop();
+    Motor_Dir_Stop();
+    
+  }
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
+
+
+
+void Motor_Esq_Hor(){
+  digitalWrite(MotorEsq1,HIGH);
+  digitalWrite(MotorEsq2,LOW); //essas são as funções , liga um e desliga o outro pra mandar ele pra um sentido
+  
+  
+  
+}
+void Motor_Esq_Anti(){
+  digitalWrite(MotorEsq2,HIGH);
+  digitalWrite(MotorEsq1,LOW);
+  
+  
+}
+void Motor_Esq_Stop(){
+  digitalWrite(MotorEsq1,LOW);
+  digitalWrite(MotorEsq2,LOW); // se mandar o mesmo pros dois ele para
+  
+                                //Não sei como funciona por dentro da ponte H nem a lógica dela, só sei como usa
+  
+}
+void Motor_Dir_Hor(){
+  digitalWrite(MotorDir1,HIGH);
+  digitalWrite(MotorDir2,LOW);
+  
+  
+  
+}
+void Motor_Dir_Anti(){
+  digitalWrite(MotorDir2,HIGH);
+  digitalWrite(MotorDir1,LOW);
+  
+  
+}
+void Motor_Dir_Stop(){
+  digitalWrite(MotorDir1,LOW);
+  digitalWrite(MotorDir2,LOW);
+  
+
+  
