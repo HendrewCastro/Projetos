@@ -1,0 +1,146 @@
+jumbAlf = ['⊇', '≡', '↙', ',', '₴', '▷', '>=', '%', '♪', '¢', '☮', '∪', '∧', '♻', '⊂', '₦', '^', '↓', '☐', '∑', '◌', '₪', '⇆', '✖', '♫', '"', '■', '★', '↕', '⬜', '(', '}', '₹', '☃', '♣', '⚛', '☢', '>', '€', '☁', '₩', '♭', '£', '[', '▽', '₽', '☸', '•', '==', '⊃', '¬', '&', '♦', "'", '☠', '⊗', '↑', '◉', '{', '_', '⬛', '∉', '∩', '@', '#', '∂', '○', '⚖', '$', '☦', '⚡', '✩', '←', '□', '⬤', '₫', '↘', '₭', '♲', '|', '∏', '¥', '™', '!', '☧', '♮', '¶', '∫', '®', '‡', ';', '≠', '\\']
+def code(input):
+    input=input("digite seu text ")
+    ptAlf = [
+        # Letras latinas maiúsculas
+        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
+        "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+        
+        # Letras latinas minúsculas
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
+        "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+        
+        # Números
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+        
+        # Símbolos comuns
+        "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+",
+        "[", "]", "{", "}", "|", "\\", ":", ";", "'", "\"", ",", ".", "<", ">", "/", "?" , " "
+    ] #ele pega a letra do alfabeto e procura no alfabeto jumble e pega a letra correspondente no alfabeto jumble, ele pega a posicao equivalente da letra no alfabeto e pega a letra correspondente no alfabeto jumble. ptAlf[0] = A,  jumbAlf[0] = ⊇, A = ⊇
+    #jumbAlf = ['⊇', '≡', '↙', ',', '₴', '▷', '>=', '%', '♪', '¢', '☮', '∪', '∧', '♻', '⊂', '₦', '^', '↓', '☐', '∑', '◌', '₪', '⇆', '✖', '♫', '"', '■', '★', '↕', '⬜', '(', '}', '₹', '☃', '♣', '⚛', '☢', '>', '€', '☁', '₩', '♭', '£', '[', '▽', '₽', '☸', '•', '==', '⊃', '¬', '&', '♦', "'", '☠', '⊗', '↑', '◉', '{', '_', '⬛', '∉', '∩', '@', '#', '∂', '○', '⚖', '$', '☦', '⚡', '✩', '←', '□', '⬤', '₫', '↘', '₭', '♲', '|', '∏', '¥', '™', '!', '☧', '♮', '¶', '∫', '®', '‡', ';', '≠', '\\']
+    jumb = []
+    jumb_final_word = ""
+    for x in input:  #Para cada letra do texto em pt
+        for y in ptAlf: #Ele vai procurar a letra correspondente no Alfabeto pt
+            if x == y: #Se a letra do alfabeto for igual a letra do texto
+             leterPosition = ptAlf.index(y) #Pega a posicao da letra no alfabeto
+             Jleter = jumbAlf[leterPosition] #Pega a letra correspondente no alfabeto Jumble
+             jumb.append(Jleter) #Adiciona a letra correspondente no jumb
+            
+    jumb_final_word = "".join(jumb) #Junta todas as letras do jumb e transforma em uma palavra
+    print (jumb_final_word) #Imprime a palavra em JUMBLE
+
+def decode(input):
+    input=input("digite seu text ")
+    ptAlf = [
+        # Letras latinas maiúsculas
+        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
+        "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+        
+        # Letras latinas minúsculas
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
+        "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+        
+        # Números
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+        
+        # Símbolos comuns
+        "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+",
+        "[", "]", "{", "}", "|", "\\", ":", ";", "'", "\"", ",", ".", "<", ">", "/", "?" , " "
+    ] #ele pega a letra do jumble e procura no alfabeto jumble e pega a letra correspondente no alfabeto ptAlf, ele pega a posicao equivalente da letra no jumble e pega a letra correspondente no ptAlf. ptAlf[0] = A,  jumbAlf[0] = ⊇, A = ⊇
+    
+    #jumbAlf = ['⊇', '≡', '↙', ',', '₴', '▷', '>=', '%', '♪', '¢', '☮', '∪', '∧', '♻', '⊂', '₦', '^', '↓', '☐', '∑', '◌', '₪', '⇆', '✖', '♫', '"', '■', '★', '↕', '⬜', '(', '}', '₹', '☃', '♣', '⚛', '☢', '>', '€', '☁', '₩', '♭', '£', '[', '▽', '₽', '☸', '•', '==', '⊃', '¬', '&', '♦', "'", '☠', '⊗', '↑', '◉', '{', '_', '⬛', '∉', '∩', '@', '#', '∂', '○', '⚖', '$', '☦', '⚡', '✩', '←', '□', '⬤', '₫', '↘', '₭', '♲', '|', '∏', '¥', '™', '!', '☧', '♮', '¶', '∫', '®', '‡', ';', '≠', '\\']
+    jumb = []
+    jumb_final_word = ""
+    for x in input: #Para cada letra do texto em jumble(linguagem que eu criei)
+        for y in jumbAlf: #Ele vai procurar a letra correspondente no Alfabeto Jumble
+            if x == y: #Se a letra do jumble for igual a letra do texto
+             leterPosition = jumbAlf.index(y) #Pega a posicao da letra no jumble
+             Jleter = ptAlf[leterPosition] #Pega a letra correspondente no alfabeto ptAlf
+             jumb.append(Jleter) #Adiciona a letra correspondente no jumb
+            
+    jumb_final_word = "".join(jumb) #Junta todas as letras do jumb e transforma em uma palavra
+    print (jumb_final_word) #Imprime a palavra em PORTUFUESE
+
+def randomizer():
+    import random
+    alfabeto = []
+    x=0
+    char = [
+        # Símbolos matemáticos e operadores
+        "+", "-", "*", "/", "=", "<", ">", "<=", ">=", "==", "!=", "%",
+        "±", "√", "∑", "∏", "∫", "∂", "∞", "≈", "≠", "≡", "∧", "¬",
+        "⊕", "⊗", "∪", "∩", "⊂", "⊃", "⊆", "⊇", "∈", "∉", "∅", "∠",
+        
+        # Símbolos de moeda
+        "$", "€", "£", "¥", "¢", "₹", "₽", "₩", "₫", "₭", "₪", "₴", "₦",
+        
+        # Símbolos de pontuação
+        "!", "@", "#", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", 
+        "[", "]", "{", "}", "|", "\\", ";", ":", "'", "\"", ",", ".", "<", 
+        ">", "/", "?", "~", "`",
+        
+        # Símbolos gráficos e geométricos
+        "■", "□", "▲", "△", "▶", "▷", "▼", "▽", "◀", "◁", "◆", "◇", "○", "●", 
+        "★", "☆", "☐", "✔", "✖", "✩", "❖", "⬛", "⬜", "⬤", "⬟", "◉", "◌", "◍",
+        
+        # Símbolos de setas
+        "→", "←", "↑", "↓", "↔", "↕", "⇄", "⇆", "⇅", "⇵", "↗", "↘", "↖", "↙",
+        
+        # Símbolos de notação musical
+        "♪", "♫", "♬", "♩", "♭", "♯", "♮",
+        
+        # Símbolos diversos
+        "©", "®", "™", "¶", "§", "°", "†", "‡", "•", "‣", "‖", "※", "♲", "♻", 
+        "⚕", "⚖", "⚛", "⚡", "☀", "☁", "☂", "☃", "☄", "♠", "♥", "♦", "♣",
+        "☮", "☯", "☪", "☮", "☸", "☦", "☧", "✝", "☠", "⚰", "⚱", "☢", "☣"
+    ]
+
+
+
+
+
+    tamanho = len(char)
+
+    unicode_chars = [
+        # Letras latinas maiúsculas
+        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
+        "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+        
+        # Letras latinas minúsculas
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
+        "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+        
+        # Números
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+        
+        # Símbolos comuns
+        "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+",
+        "[", "]", "{", "}", "|", "\\", ":", ";", "'", "\"", ",", ".", "<", ">", "/", "?" , " "
+    ]
+
+
+
+
+    for x in unicode_chars:
+        while True:
+         position = random.randint(0,tamanho - 1)
+         letra = char[position]
+         if letra not in alfabeto:
+            alfabeto.append(letra)
+            break
+    return alfabeto
+                                 
+while True:
+ choice = input("Deseja Codificar [1] Ou Decodificar [2]?... [3] Para criar um novo alfabeto [4] Para Sair \n")
+ if choice == "1":
+    code(input)
+ elif choice == "2":
+    decode(input)
+ elif choice == "3":
+    jumbAlf = randomizer()
+    print("Novo alfabeto criado")
+ elif choice == "4":
+    break
+ else:
+    print ("erro")
