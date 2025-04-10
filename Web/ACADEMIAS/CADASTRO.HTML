@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="LOGIN.CSS">
+    <title>Login</title>
+</head>
+<body>
+    <header>
+        <nav>
+          <div id="halfLogo">
+          <div id="logo-img">
+            <img src="logo3.png" id="logo-png">
+          </div>
+          
+          <a class="logo" href="HOME.html" >Gym Strong</a>
+          </div>
+          <ul class="nav-list">
+            <li><a href="PLANOS.html">Planos</a></li>
+            <li><a href="ACADEMIAS.html">Academias</a></li>
+            <li><a href="LOGIN.HTML">Login</a></li>
+          </ul>
+        </nav>
+      </header>
+    <main>
+    <div class="login" id="Login">
+        <form action="HOME.html" class="loginForm" onsubmit="return sub2()" method="post">
+            <h1 class="logintH1">Cadastro</h1>
+
+            <div class="loginInputs">
+                <div class="loginDivzin">
+                    <input type="text" placeholder="Nome" id="Nome">
+                </div>
+
+                <div class="loginDivzin">
+                    <input type="email" placeholder="Email" id="Email">
+                </div>
+
+                <div class="login2">
+                    <input type="password" placeholder="Senha" id="Senha">
+                </div>
+
+                <div class="login2">
+                    <input type="password" placeholder="Confirmar Senha" id="ConfirmarSenha">
+                    <span id="spanS"></span>
+                </div>
+            </div>
+
+            <a onclick="esqueceuasenha()" id="esqueceuasenha">Esqueceu a senha?</a>
+
+            <button type="submit">Cadastre-se</button>
+
+            <div class="loginRegistro">
+                <p>Já possui uma conta? <a href="LOGIN.HTML">faça login</a></p>
+            </div>
+        </form>
+    </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+          <div class="footer-column">
+            <h3>Sobre Nós</h3>
+            <p>Somos uma empresa dedicada a fornecer o melhor dos serviços e produtos para nossos clientes.</p>
+          </div>
+          <div class="footer-column">
+            <h3>Contato</h3>
+            <ul>
+              <li>Email: gymstrong@gmail.com</li>
+              <li>Telefone: (55) 9090-9090</li>
+              <li>Endereço: Rua do CC, 085, Fortaleza, CE</li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Links Úteis</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Sobre</a></li>
+              <li><a href="#">Serviços</a></li>
+              <li><a href="#">Contato</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Siga-nos</h3>
+            <ul class="social-icons">
+              <li><a href="#"><img src="facebook-icon.png" alt="Facebook"></a></li>
+              <li><a href="#"><img src="twitter-icon.png" alt="Twitter"></a></li>
+              <li><a href="#"><img src="instagram-icon.png" alt="Instagram"></a></li>
+              <li><a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Newsletter</h3>
+            <form>
+              <input type="email" placeholder="Seu email" required>
+              <button type="submit">Inscrever-se</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Gym Strong Inc. Todos os direitos reservados. | <a href="#">Termos e Condições</a> | <a href="#">Política de Privacidade</a></p>
+        </div>
+      </footer>
+    <script src="LOGIN.JS"></script>
+ 
+</body>
+</html>
