@@ -1,0 +1,129 @@
+body {
+    background-color: #FCF9EE;
+    color: #060B12;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #FFAD12;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin-bottom: 50px;
+  }
+  
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .logo img:hover{
+    background-color: aqua;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-left: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #060B12;
+    font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+    color: #4169E1;
+  }
+  
+  
+  
+  .cnp-button {
+    background-color: #4169E1;
+    color: #FCF9EE;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+  
+  .cnp-button:hover {
+    background-color: #FFAD12;
+  }
+  
+  .section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #FCF9EE;
+    border: 3px solid grey;
+  }
+  
+  #planos {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #FCF9EE;
+    border: 3px solid aqua;
+    margin-bottom: 50px;
+  }
+  
+  .section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  
+  .grid-zao {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    
+  }
+  
+  .grid-div {
+    width: 30%;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+  }
+  
+  .grid-div img {
+    width: 100%;
+    height: auto;
+   
+  }
+  
+  .grid-div h3 {
+    font-size: 24px;
+    margin: 10px 0;
+   
+  }
+
+  .comecar {
+    height: 3px;
+    background-color: #FCF9EE;
+    color: #FCF9EE;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  footer {
+    background-color: #060B12;
+    color: #FCF9EE;
+    text-align: center;
+    padding: 20px;
+    border: 3px solid yellow;
+  }
+  
+  .rodape p {
+    margin: 5px 0;
+  }
