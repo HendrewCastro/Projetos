@@ -17,6 +17,9 @@ const rl = readline.createInterface({
 const Users = [];
 const clients = new Map();
 
+const GROQ_API_KEY = 'YOUR_GROQ_API_KEY_HERE'; // Replace with your xAI API key
+const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions'; // OpenAI-compatible endpoint
+
 // Delete previous sessions (optional confirmation)
 rl.question('Deseja apagar todas as sessões anteriores? (s/n): ', (answer) => {
     if (answer.toLowerCase() === 's') {
